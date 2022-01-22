@@ -9,7 +9,7 @@ import { Home } from "../models";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
 import { CollectionProps } from "@aws-amplify/ui-react";
 export declare type FAQItemCollectionProps = React.PropsWithChildren<Partial<CollectionProps<any>> & {
-    home?: Home;
+    pdfpolly?: Home;
     items?: any[];
 } & {
     overrides?: EscapeHatchProps | undefined | null;

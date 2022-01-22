@@ -4,7 +4,6 @@
  * Any changes to this file will be overwritten when running amplify pull. *
  **************************************************************************/
 
-export { default as FAQItemCollection } from "./FAQItemCollection";
 export { default as CardD } from "./CardD";
 export { default as MarketingPricing } from "./MarketingPricing";
 export { default as FeaturesText2x2 } from "./FeaturesText2x2";
@@ -35,4 +34,5 @@ export { default as NewHomes } from "./NewHomes";
 export { default as CardE } from "./CardE";
 export { default as ProductDetail } from "./ProductDetail";
 export { default as Features4x1 } from "./Features4x1";
+export { default as FAQItemCollection } from "./FAQItemCollection";
 export { default as ContactUs } from "./ContactUs";

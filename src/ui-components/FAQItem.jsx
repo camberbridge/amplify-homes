@@ -9,7 +9,7 @@ import React from "react";
 import { getOverrideProps } from "@aws-amplify/ui-react/internal";
 import { Divider, Flex, Text } from "@aws-amplify/ui-react";
 export default function FAQItem(props) {
-  const { PDFPolly, overrides: overridesProp, ...rest } = props;
+  const { pdfpolly, overrides: overridesProp, ...rest } = props;
   const overrides = { ...overridesProp };
   return (
     <Flex
@@ -59,7 +59,7 @@ export default function FAQItem(props) {
             alignSelf="stretch"
             position="relative"
             padding="0px 0px 0px 0px"
-            children={`${"\u25A0 "}${PDFPolly?.docObjectName}`}
+            children={`${"\u25A0 "}${pdfpolly?.address}`}
             {...getOverrideProps(overrides, "Flex.Flex[0].Flex[0].Text[0]")}
           ></Text>
         </Flex>
@@ -88,7 +88,6 @@ export default function FAQItem(props) {
             alignSelf="stretch"
             position="relative"
             padding="0px 0px 0px 0px"
-            link={PDFPolly?.pollyObjectName}
             children="Download"
             {...getOverrideProps(overrides, "Flex.Flex[0].Flex[1].Text[0]")}
           ></Text>

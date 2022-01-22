@@ -13,26 +13,25 @@ import {
 } from "@aws-amplify/ui-react/internal";
 import FAQItem from "./FAQItem";
 import { Collection } from "@aws-amplify/ui-react";
-import { SortDirection } from "@aws-amplify/datastore";
 export default function FAQItemCollection(props) {
-  const { home, items: itemsProp, overrides: overridesProp, ...rest } = props;
+  const {
+    pdfpolly,
+    items: itemsProp,
+    overrides: overridesProp,
+    ...rest
+  } = props;
   const overrides = { ...overridesProp };
-  const itemsPagination = {
-    sort: (s) => s.createdAt(SortDirection.DESCENDING),
-  };
   const items =
     itemsProp !== undefined
       ? itemsProp
       : useDataStoreBinding({
           type: "collection",
           model: Home,
-          pagination: itemsPagination,
         }).items;
   return (
     <Collection
       type="list"
       direction="column"
-      alignItems="stretch"
       justifyContent="stretch"
       items={items || []}
       {...rest}
@@ -40,10 +39,8 @@ export default function FAQItemCollection(props) {
     >
       {(item, index) => (
         <FAQItem
-          home={item}
-          height="auto"
-          width="auto"
-          margin="0px 10px 0px 10px"
+          pdfpolly={item}
+          margin="0 10px 0 10px"
           key={item.id}
           {...getOverrideProps(overrides, "Collection.FAQItem[0]")}
         ></FAQItem>

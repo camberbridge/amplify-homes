@@ -5,11 +5,11 @@
  **************************************************************************/
 
 import React from "react";
-import { PDFPolly } from "../models";
+import { Home } from "../models";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
 import { FlexProps } from "@aws-amplify/ui-react";
 export declare type FAQItemProps = React.PropsWithChildren<Partial<FlexProps> & {
-    PDFPolly?: PDFPolly;
+    pdfpolly?: Home;
 } & {
     overrides?: EscapeHatchProps | undefined | null;
 }>;
