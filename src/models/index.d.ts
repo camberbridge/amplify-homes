@@ -4,8 +4,25 @@ import { ModelInit, MutableModel, PersistentModelConstructor } from "@aws-amplif
 
 
 
+type PDFPollyMetaData = {
+  readOnlyFields: 'createdAt' | 'updatedAt';
+}
+
 type HomeMetaData = {
   readOnlyFields: 'createdAt' | 'updatedAt';
+}
+
+export declare class PDFPolly {
+  readonly id: string;
+  readonly userId?: string;
+  readonly bucketName?: string;
+  readonly documentStatus?: string;
+  readonly docObjectName?: string;
+  readonly pollyObjectName?: string;
+  readonly createdAt?: string;
+  readonly updatedAt?: string;
+  constructor(init: ModelInit<PDFPolly, PDFPollyMetaData>);
+  static copyOf(source: PDFPolly, mutator: (draft: MutableModel<PDFPolly, PDFPollyMetaData>) => MutableModel<PDFPolly, PDFPollyMetaData> | void): PDFPolly;
 }
 
 export declare class Home {

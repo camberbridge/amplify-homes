@@ -9,7 +9,7 @@ import React from "react";
 import { getOverrideProps } from "@aws-amplify/ui-react/internal";
 import { Divider, Flex, Text } from "@aws-amplify/ui-react";
 export default function FAQItem(props) {
-  const { home, overrides: overridesProp, ...rest } = props;
+  const { PDFPolly, overrides: overridesProp, ...rest } = props;
   const overrides = { ...overridesProp };
   return (
     <Flex
@@ -25,6 +25,7 @@ export default function FAQItem(props) {
       <Flex
         gap="0"
         direction="row"
+        height="70px"
         alignItems="center"
         shrink="0"
         alignSelf="stretch"
@@ -37,7 +38,7 @@ export default function FAQItem(props) {
           gap="16px"
           direction="column"
           width="964px"
-          height="69px"
+          height="46px"
           shrink="0"
           position="relative"
           padding="0px 0px 0px 0px"
@@ -58,34 +59,15 @@ export default function FAQItem(props) {
             alignSelf="stretch"
             position="relative"
             padding="0px 0px 0px 0px"
-            children={home?.address}
+            children={`${"\u25A0 "}${PDFPolly?.docObjectName}`}
             {...getOverrideProps(overrides, "Flex.Flex[0].Flex[0].Text[0]")}
-          ></Text>
-          <Text
-            fontFamily="Inter"
-            fontSize="16px"
-            fontWeight="400"
-            color="rgba(0,0,0,1)"
-            lineHeight="24px"
-            textAlign="left"
-            display="flex"
-            direction="column"
-            justifyContent="flex-start"
-            letterSpacing="0.010000000000000009px"
-            width="964px"
-            shrink="0"
-            alignSelf="stretch"
-            position="relative"
-            padding="0px 0px 0px 0px"
-            children={home?.price}
-            {...getOverrideProps(overrides, "Flex.Flex[0].Flex[0].Text[1]")}
           ></Text>
         </Flex>
         <Flex
           gap="16px"
           direction="column"
           width="97px"
-          height="68px"
+          height="46px"
           shrink="0"
           position="relative"
           padding="0px 0px 0px 0px"
@@ -106,6 +88,7 @@ export default function FAQItem(props) {
             alignSelf="stretch"
             position="relative"
             padding="0px 0px 0px 0px"
+            link={PDFPolly?.pollyObjectName}
             children="Download"
             {...getOverrideProps(overrides, "Flex.Flex[0].Flex[1].Text[0]")}
           ></Text>
@@ -114,7 +97,7 @@ export default function FAQItem(props) {
           gap="16px"
           direction="column"
           width="97px"
-          height="68px"
+          height="46px"
           shrink="0"
           position="relative"
           padding="0px 0px 0px 0px"

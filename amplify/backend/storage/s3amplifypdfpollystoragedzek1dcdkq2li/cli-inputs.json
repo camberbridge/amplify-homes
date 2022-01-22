@@ -1,0 +1,11 @@
+{
+  "resourceName": "s3amplifypdfpollystoragedzek1dcdkq2li",
+  "bucketName": "amplify-pdf-polly-storage-dzek1dcdkq2li",
+  "policyUUID": "c6b71ac2",
+  "storageAccess": "auth",
+  "guestAccess": [],
+  "authAccess": [
+    "CREATE_AND_UPDATE",
+    "DELETE"
+  ]
+}

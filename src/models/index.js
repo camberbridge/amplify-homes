@@ -4,8 +4,9 @@ import { schema } from './schema';
 
 
 
-const { Home } = initSchema(schema);
+const { PDFPolly, Home } = initSchema(schema);
 
 export {
+  PDFPolly,
   Home
 };

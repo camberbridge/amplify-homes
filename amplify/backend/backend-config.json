@@ -15,6 +15,12 @@
           "additionalAuthenticationProviders": [
             {
               "authenticationType": "AWS_IAM"
+            },
+            {
+              "authenticationType": "AMAZON_COGNITO_USER_POOLS",
+              "userPoolConfig": {
+                "userPoolId": "authamplifyhomes"
+              }
             }
           ]
         }
@@ -52,6 +58,13 @@
           "EMAIL"
         ]
       }
+    }
+  },
+  "storage": {
+    "s3amplifypdfpollystoragedzek1dcdkq2li": {
+      "service": "S3",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": []
     }
   }
 }
