@@ -6,6 +6,10 @@ import { withAuthenticator } from '@aws-amplify/ui-react'; // 認証に必要
 
 import Amplify, { Storage } from 'aws-amplify';
 
+import { DataStore } from '@aws-amplify/datastore';
+import { Home } from './models';
+
+
 function App() {
 
 Amplify.configure({
@@ -29,12 +33,21 @@ async function onChange(e) {
   }
 }
 
+async function f(){
+  const res = await DataStore.query(Home);
+  console.log('なまろぐー');
+  console.log(res);
+}
+f()
+
+
   return (
     <div className="App">
       <NavBar width={"100vw"}/>
       <FAQTitle width={"100vw"}/>
       <input type="file" onChange={onChange} />
       <FAQItemCollection />
+//TODO: ここにDynamoを取得してlistを生成する機構を直書きする
     </div>
   );
 }
