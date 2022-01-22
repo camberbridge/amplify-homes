@@ -23,6 +23,7 @@ async function onChange(e) {
     await Storage.put(file.name, file, {
       contentType: "application/pdf", // contentType is optional
     });
+    alert('アップロードしました');
   } catch (error) {
     console.log("Error uploading file: ", error);
   }
