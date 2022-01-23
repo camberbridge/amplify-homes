@@ -39,7 +39,7 @@ function init(){
 
   // DynamoDB scanで必要なパラメータ
   let params = {
-    TableName : TABLE_NAME, // テーブル名
+    TableName : 'Home-mg2eyfw7ebfqlhob7s5f4zcehq-devn',
   };
 
   // scanの実行(非同期で実行され、コールバックで結果を受ける)
