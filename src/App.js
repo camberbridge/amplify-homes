@@ -73,7 +73,6 @@ function init(){
       document.getElementById('hogehoge').innerHTML = htmlTexts;
   });
 }
-init();
 
 
 
@@ -108,8 +107,14 @@ init();
 //   });
 // }
 
+var flag = true;
 
 function App() {
+  if(flag){
+    init();
+    flag = false;
+  }
+
   async function onChange(e) {
     const file = e.target.files[0];
     try {
