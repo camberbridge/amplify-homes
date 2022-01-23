@@ -11,6 +11,16 @@ import { Home } from './models';
 
 import amplify from './aws-exports';
 
+
+const s3_bukcet = amplify.aws_user_files_s3_bucket;
+Amplify.configure({
+    Storage: {
+        AWSS3: {s3_bukcet, //REQUIRED -  Amazon S3 bucket name
+            region: 'us-east-1', //OPTIONAL -  Amazon service region
+        }
+    }
+});
+
 function htmlTemplate(fileName, mp3URL){
   const text = '<div class="amplify-flex amplify-collection"><div class="amplify-flex amplify-collection-items" style="flex-direction: column; justify-content: stretch;"><div style="align-items: center; align-self: stretch; background-color: rgb(255, 255, 255); flex-direction: row; gap: 0px; height: 70px; padding: 24px; position: relative; flex-shrink: 0;" class="amplify-flex"><div style="flex-direction: column; gap: 16px; height: 46px; padding: 0px; position: relative; flex-shrink: 0; width: 964px;" class="amplify-flex"><p style="align-self: stretch; color: rgb(0, 0, 0); flex-direction: column; display: flex; font-family: Inter; font-size: 16px; font-weight: 700; justify-content: flex-start; line-height: 24px; padding: 0px; position: relative; flex-shrink: 0; text-align: left; width: 964px;" class="amplify-text">　■ '+fileName+'</p></div><div style="flex-direction: column; gap: 16px; height: 46px; padding: 0px; position: relative; flex-shrink: 0; width: 97px;" class="amplify-flex"><p style="align-self: stretch; color: rgb(0, 0, 0); flex-direction: column; display: flex; font-family: Inter; font-size: 16px; font-weight: 700; justify-content: flex-start; line-height: 24px; padding: 0px; position: relative; flex-shrink: 0; text-align: left; width: 97px;" class="amplify-text">'+'<a href="'+mp3URL+'">'+'Download MP3</a>'+'</p></div><div style="flex-direction: column; gap: 16px; height: 46px; padding: 0px; position: relative; flex-shrink: 0; width: 97px;" class="amplify-flex"><p style="align-self: stretch; color: rgb(0, 0, 0); flex-direction: column; display: flex; font-family: Inter; font-size: 16px; font-weight: 700; justify-content: flex-start; line-height: 24px; padding: 0px; position: relative; flex-shrink: 0; text-align: left; width: 97px;" class="amplify-text">Delete</p></div></div><hr style="align-self: stretch; flex-shrink: 0; width: 1280px;" aria-orientation="horizontal" class="amplify-divider" data-size="small"></div></div>';
   return(text);
@@ -52,9 +62,10 @@ function init(){
           return d.doc.create_at > next_d.doc.create_at ? -1 : 1;
         });
         doc_list_r.forEach(dt => {
+          const mp3_url = dt.doc.mp3_url
           console.log('=========');
-          console.log(dt.doc.mp3_url);
-          htmlTexts += htmlTemplate(dt.doc.file_name, dt.doc.mp3_url);
+          console.log(mp3_url);
+          htmlTexts += htmlTemplate(dt.doc.file_name, mp3_url);
         });
       }
 
@@ -64,15 +75,6 @@ function init(){
 init();
 
 function App() {
-  const s3_bukcet = amplify.aws_user_files_s3_bucket;
-  Amplify.configure({
-      Storage: {
-          AWSS3: {s3_bukcet, //REQUIRED -  Amazon S3 bucket name
-              region: 'us-east-1', //OPTIONAL -  Amazon service region
-          }
-      }
-  });
-
   async function onChange(e) {
     const file = e.target.files[0];
     try {
