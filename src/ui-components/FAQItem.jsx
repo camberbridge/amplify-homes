@@ -88,6 +88,7 @@ export default function FAQItem(props) {
             alignSelf="stretch"
             position="relative"
             padding="0px 0px 0px 0px"
+            href="http://www.google.com"
             children="Download"
             {...getOverrideProps(overrides, "Flex.Flex[0].Flex[1].Text[0]")}
           ></Text>
