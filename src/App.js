@@ -35,7 +35,6 @@ console.log('#testId#: ', process.env.secrets);
 console.log('#testIddd#: ', process.env.test);
 console.log('++++++++++');
 
-
 var htmlTexts = '';
 var AWS = require("aws-sdk");
 function init(){
