@@ -27,6 +27,7 @@ function htmlTemplate(fileName, mp3URL, uid){
 }
 
 console.log('#testId#: ', amplify.testId);
+
 var htmlTexts = '';
 var AWS = require("aws-sdk");
 function init(){
