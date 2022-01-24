@@ -26,7 +26,13 @@ function htmlTemplate(fileName, mp3URL, uid){
   return(text);
 }
 
+console.log('++++++++++');
 console.log('#testId#: ', amplify.testId);
+console.log('#testId#: ', process.env.TEST_ID);
+console.log('#testId#: ', process.env.TEST_KEY);
+console.log('#testId#: ', process.env.DDB_TABLE);
+console.log(__dirname);
+console.log('++++++++++');
 
 var htmlTexts = '';
 var AWS = require("aws-sdk");
