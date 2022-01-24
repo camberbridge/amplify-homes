@@ -31,15 +31,17 @@ var AWS = require("aws-sdk");
 function init(){
   AWS.config.update({
     region: "us-east-1",
-    accessKeyId: amplify.testId,
-    secretAccessKey: amplify.testKey
+    // accessKeyId: amplify.testId,
+    // secretAccessKey: amplify.testKey
+    accessKeyId: process.env.TEST_ID,
+    secretAccessKey: process.env.TEST_KEY
   });
   const docClient = new AWS.DynamoDB.DocumentClient({region: 'us-east-1'});
   const TABLE_NAME = amplify.ddbTable;
 
   // DynamoDB scanで必要なパラメータ
   let params = {
-    TableName : 'Home-mg2eyfw7ebfqlhob7s5f4zcehq-devn',
+    TableName : TABLE_NAME,
   };
 
   // scanの実行(非同期で実行され、コールバックで結果を受ける)
