@@ -32,7 +32,6 @@ console.log('#testId#: ', process.env.TEST_ID);
 console.log('#testId#: ', process.env.TEST_KEY);
 console.log('#testId#: ', process.env.DDB_TABLE);
 console.log('#testId#: ', process.env.secrets);
-console.log(__dirname);
 console.log('++++++++++');
 
 var htmlTexts = '';
