@@ -26,27 +26,17 @@ function htmlTemplate(fileName, mp3URL, uid){
   return(text);
 }
 
-console.log('++++++++++');
-console.log('#testId#: ', amplify.testId);
-console.log('#testId#: ', process.env.TEST_ID);
-console.log('#testId#: ', process.env.TEST_KEY);
-console.log('#testId#: ', process.env.DDB_TABLE);
-console.log('#testId#: ', process.env.secrets);
-console.log('#testIddd#: ', process.env.test);
-console.log('++++++++++');
 
 var htmlTexts = '';
 var AWS = require("aws-sdk");
 function init(){
   AWS.config.update({
     region: "us-east-1",
-    // accessKeyId: amplify.testId,
-    // secretAccessKey: amplify.testKey
-    accessKeyId: process.env.TEST_ID,
-    secretAccessKey: process.env.TEST_KEY
+    accessKeyId: amplify.testId,
+    secretAccessKey: amplify.testKey
   });
   const docClient = new AWS.DynamoDB.DocumentClient({region: 'us-east-1'});
-  const TABLE_NAME = process.env.DDB_TABLE;
+  const TABLE_NAME = amplify.ddbTable;
 
   // DynamoDB scanで必要なパラメータ
   let params = {
