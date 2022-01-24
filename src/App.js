@@ -37,7 +37,7 @@ function init(){
     secretAccessKey: process.env.TEST_KEY
   });
   const docClient = new AWS.DynamoDB.DocumentClient({region: 'us-east-1'});
-  const TABLE_NAME = amplify.ddbTable;
+  const TABLE_NAME = process.env.TEST_KEY;
 
   // DynamoDB scanで必要なパラメータ
   let params = {
